@@ -1,0 +1,29 @@
+services:
+  resourcespace:
+    build:
+      context: .
+      args:
+      - RS_VERSION=9.8
+      - PHP_MAJOR_VERSION=8.0
+    # restart: always
+    depends_on:
+      - db
+    volumes:
+      - resourcespace_filestore:/var/www/resourcespace/filestore
+      - resourcespace_include:/var/www/resourcespace/include
+    ports:
+      - 80:80
+
+  db:
+    image: mariadb:10
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=root-pw
+      - MARIADB_USER=resourcespace_rw
+      - MARIADB_PASSWORD=resourcespace_rw-pw
+      - MARIADB_DATABASE=resourcespace
+
+volumes:
+  db_data:
+  resourcespace_filestore:
+  resourcespace_include:
