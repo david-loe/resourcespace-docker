@@ -17,6 +17,8 @@ services:
   db:
     image: mariadb:10
     restart: always
+    volumes:
+      - db_data:/var/lib/mysql
     environment:
       - MARIADB_ROOT_PASSWORD=root-pw
       - MARIADB_USER=resourcespace_rw
