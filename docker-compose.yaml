@@ -3,8 +3,8 @@ services:
     build:
       context: .
       args:
-      - RS_VERSION=9.8
-      - PHP_MAJOR_VERSION=8.0
+      - RS_VERSION=10.0
+      - PHP_MAJOR_VERSION=8.1
     restart: always
     depends_on:
       - db

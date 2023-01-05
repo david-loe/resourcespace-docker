@@ -31,6 +31,3 @@ RUN chmod -R 777 /var/www/resourcespace/include
 COPY cronjob /etc/cron.daily/resourcespace
 
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
-
-# Ensure the filestore is not browseable by disabling indexing
-# RUN a2dismod --force autoindex && service apache2 restart
