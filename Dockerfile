@@ -1,6 +1,6 @@
 ARG PHP_MAJOR_VERSION=8.1
 FROM php:${PHP_MAJOR_VERSION}-apache
-ARG RS_VERSION=10.2
+ARG RS_VERSION=10.3
 ARG PHP_MAJOR_VERSION=8.1
 
 # Use the default production configuration
