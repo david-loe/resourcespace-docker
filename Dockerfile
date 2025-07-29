@@ -1,7 +1,7 @@
-ARG PHP_MAJOR_VERSION=8.1
+ARG PHP_MAJOR_VERSION=8.3
 FROM php:${PHP_MAJOR_VERSION}-apache
-ARG RS_VERSION=10.5
-ARG PHP_MAJOR_VERSION=8.1
+ARG RS_VERSION=10.6
+ARG PHP_MAJOR_VERSION=8.3
 
 # Use the default production configuration
 RUN mv "${PHP_INI_DIR}/php.ini-production" "${PHP_INI_DIR}/php.ini"
