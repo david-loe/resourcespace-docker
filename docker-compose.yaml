@@ -4,18 +4,17 @@ services:
       context: .
       args:
         - RS_VERSION=10.6
-        - PHP_MAJOR_VERSION=8.3
     restart: always
     depends_on:
       - db
     volumes:
-      - resourcespace_filestore:/var/www/resourcespace/filestore
-      - resourcespace_include:/var/www/resourcespace/include
+      - filestore:/var/www/html/filestore
+      - ./config.php:/var/www/html/include/config.php
     ports:
       - 80:80
 
   db:
-    image: mariadb:10
+    image: mariadb:12
     restart: always
     volumes:
       - db_data:/var/lib/mysql
@@ -27,5 +26,4 @@ services:
 
 volumes:
   db_data:
-  resourcespace_filestore:
-  resourcespace_include:
+  filestore:

@@ -1,2 +1,2 @@
 #!/bin/sh
-wget -q -r http://localhost/pages/tools/cron_copy_hitcount.php
+su -s /bin/sh -c 'cd /var/www/html/pages/tools && nice -n 19 ionice -c2 -n7 php cron_copy_hitcount.php' www-data
