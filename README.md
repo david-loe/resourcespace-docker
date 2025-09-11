@@ -1,6 +1,6 @@
 # resourcespace-docker
 
-ResourceSpace dockerized
+ResourceSpace dockerized (also on ARM)
 
 ## download pre-build
 
