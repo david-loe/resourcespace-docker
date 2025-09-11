@@ -8,6 +8,8 @@ ResourceSpace dockerized (also on ARM)
 docker pull davidloe/resourcespace
 ```
 
+use `deploy-compose.yaml` with the clip plugin (URL: `http://clip:8000`)
+
 ## build your self
 
 ```

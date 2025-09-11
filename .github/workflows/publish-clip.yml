@@ -1,4 +1,4 @@
-name: Publish ResourceSpace
+name: Publish clip (plugin)
 
 on:
   workflow_dispatch:
@@ -41,8 +41,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            davidloe/resourcespace
-            ghcr.io/david-loe/resourcespace
+            davidloe/resourcespace-clip
+            ghcr.io/david-loe/resourcespace-clip
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
@@ -53,7 +53,7 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./clip
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}

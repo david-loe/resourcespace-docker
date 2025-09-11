@@ -1,10 +1,6 @@
 services:
   resourcespace:
-    build:
-      context: .
-      args:
-        - RS_VERSION=${RS_VERSION}
-        - PHP_MAJOR_VERSION=${PHP_MAJOR_VERSION}
+    image: davidloe/resourcespace:${RS_VERSION}
     restart: always
     depends_on:
       - db
@@ -15,10 +11,7 @@ services:
       - 80:80
 
   clip:
-    build:
-      context: clip
-      args:
-        - RS_VERSION=${RS_VERSION}
+    image: davidloe/resourcespace-clip:${RS_VERSION}
     command: --dbuser $MARIADB_USER --dbpass $MARIADB_PASSWORD
     restart: always
     depends_on:
@@ -35,4 +28,3 @@ services:
 volumes:
   db_data:
   resourcespace_filestore:
-  resourcespace_include:
