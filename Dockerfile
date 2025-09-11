@@ -11,7 +11,7 @@ COPY php.ini "${PHP_INI_DIR}/conf.d/resourcespace.ini"
 # Installation of PHP extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions apcu gd intl mysqli zip ldap exif	
+    install-php-extensions apcu gd intl mysqli pdo_mysql zip ldap exif mbstring curl dom
 
 # Install programs and dependencies
 RUN apt-get update
@@ -24,7 +24,7 @@ RUN cd /var/www/resourcespace && svn co "http://svn.resourcespace.com/svn/rs/rel
 # Set the file and folder permissions
 RUN mkdir /var/www/resourcespace/filestore && chmod 777 /var/www/resourcespace/filestore
 RUN chgrp -R www-data /var/www/resourcespace/
-RUN chmod -R 777 /var/www/resourcespace/include
+RUN chmod -R 775 /var/www/resourcespace/include
 
 # Set up the cron job for relevance matching and periodic emails
 COPY cronjob /etc/cron.daily/resourcespace

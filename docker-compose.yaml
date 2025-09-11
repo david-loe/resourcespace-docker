@@ -10,7 +10,7 @@ services:
       - db
     volumes:
       - resourcespace_filestore:/var/www/resourcespace/filestore
-      - resourcespace_include:/var/www/resourcespace/include
+      - config.php:/var/www/resourcespace/include/config.php
     ports:
       - 80:80
 
