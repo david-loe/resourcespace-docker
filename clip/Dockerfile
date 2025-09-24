@@ -6,7 +6,7 @@ ENV PIP_NO_CACHE_DIR=1
 
 WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get install -y subversion && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates subversion git && rm -rf /var/lib/apt/lists/*
 
 RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu && \
     pip install fastapi uvicorn ftfy regex tqdm mysql-connector-python python-multipart faiss-cpu requests && \
